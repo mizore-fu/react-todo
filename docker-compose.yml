@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./app:/usr/src/app
-      #- node_modules_volume:/usr/src/app/node_modules
+      - node_modules_volume:/usr/src/app/node_modules
     command: sh -c "cd app && npm start"
     ports:
       - 3000:3000
-#volumes:
-#  node_modules_volume:
+volumes:
+  node_modules_volume:
