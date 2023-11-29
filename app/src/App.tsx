@@ -20,6 +20,16 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const toggleTaskCompleted = (id: string) => {
+    const updatedTasks: Task[] = tasks.map((task: Task) => {
+      if (id === task.id) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="App">
       <h1>TODO List</h1>
@@ -27,7 +37,13 @@ function App() {
       <div>
         {tasks.map((task: Task) => {
           return (
-            <Todo key={task.id} name={task.name} completed={task.completed} />
+            <Todo
+              key={task.id}
+              id={task.id}
+              name={task.name}
+              completed={task.completed}
+              toggleTaskCompleted={toggleTaskCompleted}
+            />
           );
         })}
       </div>
