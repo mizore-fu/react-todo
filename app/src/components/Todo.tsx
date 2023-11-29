@@ -4,6 +4,7 @@ type Props = {
   id: string;
   name: string;
   completed: boolean;
+  deleteTask: (id: string) => void;
   toggleTaskCompleted: (id: string) => void;
 };
 
@@ -11,6 +12,7 @@ export const Todo: FC<Props> = ({
   id,
   name,
   completed,
+  deleteTask,
   toggleTaskCompleted,
 }) => {
   return (
@@ -21,7 +23,7 @@ export const Todo: FC<Props> = ({
         onChange={() => toggleTaskCompleted(id)}
       />
       <p>{name}</p>
-      <button>delete</button>
+      <button onClick={() => deleteTask(id)}>delete</button>
     </div>
   );
 };
