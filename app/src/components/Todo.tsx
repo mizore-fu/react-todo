@@ -1,10 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const Todo = () => {
+type Props = {
+  name: string;
+  completed: boolean;
+};
+
+export const Todo: FC<Props> = ({ name, completed }) => {
   return (
     <div>
-      <input type="checkbox" />
-      <p>Task</p>
+      <input type="checkbox" checked={completed} />
+      <p>{name}</p>
       <button>delete</button>
     </div>
   );
