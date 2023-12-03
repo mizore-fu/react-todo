@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { ulid } from "ulid";
 import { Form } from "./components/Form";
 import { Todo } from "./components/Todo";
 import { Task } from "./types";
+import { BE_URL } from "./constants";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: "taskid-1", name: "walk", completed: false },
-    { id: "taskid-2", name: "sleep", completed: false },
-    { id: "taskid-3", name: "eat", completed: false },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    axios.get(`${BE_URL}/tasks`).then(({ data }) => {
+      setTasks(data);
+    });
+  }, []);
 
   const addTask = (name: string) => {
     const newTask: Task = {
