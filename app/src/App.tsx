@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { ulid } from "ulid";
 import { Form } from "./components/Form";
 import { Todo } from "./components/Todo";
 import { Task } from "./types";
@@ -9,19 +8,23 @@ import { BE_URL } from "./constants";
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  useEffect(() => {
+  const fetchTasks = () => {
     axios.get(`${BE_URL}/tasks`).then(({ data }) => {
       setTasks(data);
     });
-  }, []);
+  };
 
-  const addTask = (name: string) => {
-    const newTask: Task = {
-      id: `taskid-${ulid()}`,
-      name: name,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]);
+  useEffect(() => fetchTasks(), []);
+
+  const addTask = async (name: string) => {
+    await axios
+      .post(`${BE_URL}/tasks`, {
+        name: name,
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    fetchTasks();
   };
 
   const deleteTask = (id: string) => {
