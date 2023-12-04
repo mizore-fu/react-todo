@@ -27,9 +27,11 @@ function App() {
     fetchTasks();
   };
 
-  const deleteTask = (id: string) => {
-    const reminingTasks = tasks.filter((task: Task) => id !== task.id);
-    setTasks(reminingTasks);
+  const deleteTask = async (id: string) => {
+    await axios.delete(`${BE_URL}/tasks/${id}`).catch((error) => {
+      console.log(error.response);
+    });
+    fetchTasks();
   };
 
   const toggleTaskCompleted = (id: string) => {
