@@ -6,20 +6,30 @@ type Props = {
 
 export const Form: FC<Props> = ({ addTask }) => {
   const [name, setName] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (name === "") {
+      setErrorMessage("タスク名は1文字以上にしてください。");
+      return;
+    }
+
     addTask(name);
     setName("");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
+    if (e.target.value !== "") {
+      setErrorMessage("");
+    }
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <p hidden={errorMessage === ""}>{errorMessage}</p>
         <input
           type="text"
           value={name}
