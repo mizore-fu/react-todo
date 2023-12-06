@@ -5,7 +5,11 @@ type Props = {
   name: string;
   completed: boolean;
   deleteTask: (id: string) => void;
-  toggleTaskCompleted: (id: string) => void;
+  toggleTaskCompleted: (
+    id: string,
+    name: string,
+    toggledCompleted: boolean
+  ) => void;
 };
 
 export const Todo: FC<Props> = ({
@@ -20,7 +24,7 @@ export const Todo: FC<Props> = ({
       <input
         type="checkbox"
         defaultChecked={completed}
-        onChange={() => toggleTaskCompleted(id)}
+        onChange={() => toggleTaskCompleted(id, name, !completed)}
       />
       <p>{name}</p>
       <button onClick={() => deleteTask(id)}>delete</button>

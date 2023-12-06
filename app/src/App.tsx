@@ -34,14 +34,20 @@ function App() {
     fetchTasks();
   };
 
-  const toggleTaskCompleted = (id: string) => {
-    const updatedTasks: Task[] = tasks.map((task: Task) => {
-      if (id === task.id) {
-        return { ...task, completed: !task.completed };
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
+  const toggleTaskCompleted = async (
+    id: string,
+    name: string,
+    toggledCompleted: boolean
+  ) => {
+    await axios
+      .put(`${BE_URL}/tasks/${id}`, {
+        name: name,
+        completed: toggledCompleted,
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    fetchTasks();
   };
 
   return (
