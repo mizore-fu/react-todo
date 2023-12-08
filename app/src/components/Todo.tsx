@@ -35,7 +35,7 @@ export const Todo: FC<Props> = ({
           className="button button--level2"
           onClick={() => deleteTask(id)}
         >
-          delete
+          削除
         </button>
       </div>
     </div>
