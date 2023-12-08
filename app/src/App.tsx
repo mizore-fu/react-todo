@@ -54,7 +54,7 @@ function App() {
     <div className="App">
       <div>TODO</div>
       <Form addTask={addTask} />
-      <div>
+      <div className="todoList">
         {tasks.map((task: Task) => {
           return (
             <Todo

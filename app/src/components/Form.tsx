@@ -27,19 +27,24 @@ export const Form: FC<Props> = ({ addTask }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <p hidden={errorMessage === ""}>{errorMessage}</p>
+    <form className="createForm" onSubmit={handleSubmit}>
+      <p className="createForm__errorText" hidden={errorMessage === ""}>
+        {errorMessage}
+      </p>
+      <div className="createForm__input">
         <input
+          className="input"
           type="text"
           value={name}
           placeholder="タスク名を入力"
           onChange={handleChange}
         />
+      </div>
+      <div className="createForm__button">
         <button className="button button--level1" type="submit">
           新規作成
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };

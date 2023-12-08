@@ -39,6 +39,25 @@ body {
   height: 100%;
 }
 
+.input {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: #c6c6c6;
+  padding: 7px 12px;
+}
+
+.App {
+  background-color: #e2e2e2;
+}
+
+.todoList {
+  background-color: #fff;
+}
+
 .todoItem {
   display: flex;
   justify-content: space-around;
@@ -58,4 +77,16 @@ body {
 .todoItem__button {
   width: 10%;
   margin-top: 9px;
+}
+
+.createForm {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #fff;
+}
+
+.createForm__input {
+  width: 80%;
+  height: 28px;
 }
