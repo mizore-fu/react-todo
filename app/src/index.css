@@ -7,3 +7,28 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
 }
+
+.button {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 9px 14px;
+  text-align: center;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.button.button--level1 {
+  border-color: #1fa61b;
+  background-color: #1fa61b;
+  color: #fff;
+}
+
+.button.button--level2 {
+  border-color: #f35;
+  background-color: #fff;
+  color: #f35;
+}

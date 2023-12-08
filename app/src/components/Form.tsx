@@ -36,7 +36,9 @@ export const Form: FC<Props> = ({ addTask }) => {
           placeholder="タスク名を入力"
           onChange={handleChange}
         />
-        <button type="submit">新規作成</button>
+        <button className="button button--level1" type="submit">
+          新規作成
+        </button>
       </form>
     </div>
   );

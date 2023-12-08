@@ -27,7 +27,9 @@ export const Todo: FC<Props> = ({
         onChange={() => toggleTaskCompleted(id, name, !completed)}
       />
       <p>{name}</p>
-      <button onClick={() => deleteTask(id)}>delete</button>
+      <button className="button button--level2" onClick={() => deleteTask(id)}>
+        delete
+      </button>
     </div>
   );
 };
