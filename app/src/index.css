@@ -91,6 +91,7 @@ body {
 
 .createForm {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 8px;
   background-color: #fff;
@@ -99,4 +100,12 @@ body {
 .createForm__input {
   width: 80%;
   height: 28px;
+}
+
+.createForm__errorText {
+  width: 100%;
+  margin: 0;
+  margin-left: 20px;
+  font-weight: bold;
+  color: #f35;
 }
