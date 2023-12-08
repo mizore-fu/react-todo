@@ -52,16 +52,26 @@ body {
 
 .App {
   background-color: #e2e2e2;
+  padding-bottom: 4px;
+}
+
+.appHeader {
+  padding: 16px;
+  background-color: #fadb6b;
+  text-align: center;
+  font-weight: bold;
 }
 
 .todoList {
-  background-color: #fff;
+  padding: 0 4px;
 }
 
 .todoItem {
   display: flex;
   justify-content: space-around;
   margin-top: 4px;
+  padding-right: 8px;
+  background-color: #fff;
 }
 
 .todoItem__checkbox {
@@ -76,7 +86,7 @@ body {
 
 .todoItem__button {
   width: 10%;
-  margin-top: 9px;
+  margin-top: 6px;
 }
 
 .createForm {
