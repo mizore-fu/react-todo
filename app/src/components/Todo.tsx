@@ -20,16 +20,24 @@ export const Todo: FC<Props> = ({
   toggleTaskCompleted,
 }) => {
   return (
-    <div>
-      <input
-        type="checkbox"
-        defaultChecked={completed}
-        onChange={() => toggleTaskCompleted(id, name, !completed)}
-      />
-      <p>{name}</p>
-      <button className="button button--level2" onClick={() => deleteTask(id)}>
-        delete
-      </button>
+    <div className="todoItem">
+      <div className="todoItem__checkbox">
+        <input
+          className="checkbox"
+          type="checkbox"
+          defaultChecked={completed}
+          onChange={() => toggleTaskCompleted(id, name, !completed)}
+        />
+      </div>
+      <p className="todoItem__title">{name}</p>
+      <div className="todoItem__button">
+        <button
+          className="button button--level2"
+          onClick={() => deleteTask(id)}
+        >
+          delete
+        </button>
+      </div>
     </div>
   );
 };
